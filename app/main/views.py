@@ -8,4 +8,13 @@ def index():
     '''
     View root page function that returns the index page and its data
     '''
-    return render_template('index.html')
+    title = 'Home - Welcome to The best Movie Review Website Online'
+    return render_template('index.html', title = title)
+
+@app.route('/articles/<id>')
+def articles(id):
+    """
+    view articles page"
+    """
+
+    return render_template('articles.html', id = id)
