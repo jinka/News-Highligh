@@ -60,7 +60,7 @@ def get_articles(id):
 
 	with urllib.request.urlopen(get_articles_url) as url:
 		articles_results = json.loads(url.read())
-
+		
 		articles_object = None
 		if articles_results['articles']:
 			articles_object = process_articles(articles_results['articles'])
@@ -92,7 +92,7 @@ def search_article(article_name):
     '''
 
     search_article_url = 'https://newsapi.org/v2/everything?language=en&q={}&apiKey={}'.format(article_name,api_key)
-
+	
     with urllib.request.urlopen(search_article_url) as url:
 
         search_article_data = url.read()
@@ -102,6 +102,6 @@ def search_article(article_name):
 
         if search_article_response['articles']:
             search_article_list = search_article_response['articles']
-            search_article_results = process_articles_results(search_article_list)
+            search_article_results = process_articles(search_article_list)
 
     return search_article_results

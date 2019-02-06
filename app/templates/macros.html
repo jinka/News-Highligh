@@ -1,9 +1,7 @@
 {% macro displaySourceList(source_list) %}
-
+	
 	{% for source_row in source_list |batch(4)%}
         <div class="row">
-        	
-	        	
             {% for sources in source_row %}
 	            <div class="col-md-3">
 		           
@@ -30,3 +28,41 @@
     {% endfor %}
 
 {% endmacro %}
+
+<!-- 
+{% macro displayArticlesList(articles_list) %}
+		
+	{% for article in articles_list |batch(4)%}
+		Article Image : {{article.image}}
+        {%if article.image%}
+        
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 card px-1 pt-1 border-dark" style="width: 50%;">
+                <img class="img-fluid card-img-top" src="{{article.image}}" alt="image" >
+                <h5 class="card-title">Article Title: {{article.title}}</h5>
+                <p class="card-text">{{article.description}}</p>
+                <p class="card-text"> <small class="text-muted">Created: {{article.publishedAt}}</small></p>
+                <a href="{{article.url}}" class="btn btn-primary btn-sm my-2 mx-2" style="width: 26%;" target="_blank">Read Full Story >> </a>
+            </div>
+    
+
+        {%endif%}
+    {% endfor %}
+{% endmacro %} -->
+
+<!-- {% macro displayArticlesList(articles) %}
+	<div class="row">
+		{% for article in articles|batch(4) %}
+			<div col-md-3>
+				{{article.title}}
+			</div>	
+		{% endfor %}	
+	</div>
+{% endmacro %} -->
+<!-- 
+self.id = id
+self.author = author
+self.title = title
+self.description = description
+self.url = url
+self.image = image
+self.date = date -->
