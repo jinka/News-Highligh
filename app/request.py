@@ -85,3 +85,23 @@ def process_articles(articles_list):
 			articles_object.append(articles_result)	
 
 	return articles_object
+
+def search_article(article_name):
+    '''
+        Function that searches articles using the key words inputted. 
+    '''
+
+    search_article_url = 'https://newsapi.org/v2/everything?language=en&q={}&apiKey={}'.format(article_name,api_key)
+
+    with urllib.request.urlopen(search_article_url) as url:
+
+        search_article_data = url.read()
+        search_article_response = json.loads(search_article_data)
+
+        search_article_results = None
+
+        if search_article_response['articles']:
+            search_article_list = search_article_response['articles']
+            search_article_results = process_articles_results(search_article_list)
+
+    return search_article_results

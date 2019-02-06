@@ -1,3 +1,7 @@
 virtual/
 *.pyc
 instance/
+.idea
+.env
+__pycache__/
+vertual/
