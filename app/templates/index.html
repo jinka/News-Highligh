@@ -1,33 +1,36 @@
-<body>
-    <News Highlights  -->
-    <h1>Sources</h1>
-    <h3>Business</h3>
-     <ul>
-        {% for business_names in sources %}
-            <li>{{ business_names.name}}</li>
-        {% endfor %}
-    </ul>
-    <h3> News Sports</h3>
+{% extends 'base.html'%}
+{% import 'macros.html' as macro %}
 
-    <ul>
-        {% for sports_names in sports_sources %}
-            <li>{{ sports_names.name}}</li>
-        {% endfor %}
-    </ul>
+{% block content%}
+<div class="container">
+		<!-- Business News Section  -->
+        <h3> Top Business News Sources</h3>
+        <hr>
 
-    <h3>Technology News</h3>
+        {{ macro.displaySourceList(sources)}}
 
-    <ul>
-        {% for techno_names in technology_sources %}
-            <li>{{ techno_names.name}}</li>
-        {% endfor %}
-    </ul>
+        <!-- Business News Section  -->
 
-    <h3>Entertainment</h3>
-    <ul>
-        {% for entertainment_names in entertainment_sources %}
-            <li>{{ entertainment_names.name}}</li>
-        {% endfor %}
-    </ul>
+        <h3> Top Technology News Sources</h3>
+        <hr>
 
-</body>
+        {{ macro.displaySourceList(technology_sources)}}
+
+        <!-- Entertainment News Section  -->
+
+        <h3> Top Entertainment News Sources</h3>
+        <hr>
+
+        {{ macro.displaySourceList(entertainment_sources)}}
+
+        <!-- Entertainment News Section  -->
+
+        <h3> Top Sports News Sources</h3>
+        <hr>
+
+        {{ macro.displaySourceList(sports_sources)}}
+
+</div>
+
+
+{%endblock%}

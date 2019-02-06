@@ -6,11 +6,6 @@ from datetime import datetime
 #getting the api key
 api_key = app.config['NEWS_API_KEY']
 
-# api_key = None
-
-# #getting the news base url
-# base_url = None
-
 # #getting the articlces url
 base_url = app.config['NEWS_SOURCES_BASE_URL']
 articles_url = app.config['ARTICLES_BASE_URL']
