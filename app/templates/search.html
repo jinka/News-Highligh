@@ -4,7 +4,7 @@
 {%block content%}
 
 <div style="display: flex; flex-wrap: wrap; padding-bottom: 50px;">
-    <!-- {{macro.displaySourceList(articles)}} -->
+    {{macro.displayArticleList(articles)}}
     {% for source_row in source_list |batch(4)%}
     {% endfor %}
 </div>
