@@ -1,11 +1,12 @@
 from flask import render_template,request,redirect,url_for
-from app import app
+from . import main
+# from  app import app
 from ..request import get_sources,get_articles,search_article
 from ..models import Sources
 
 
 # Views
-@app.route('/')
+@main.route('/')
 def index():
 	'''
 	view root page function that returns the index the page and its data
@@ -18,11 +19,11 @@ def index():
 
 	search_movie = request.args.get('movie_query')
 	if search_movie:
-		return redirect(url_for('search',movie_name=search_movie))
+		return redirect(url_for('.search',movie_name=search_movie))
 	else:
 		return render_template('index.html',title = title, sources = sources,sports_sources = sports_sources,technology_sources = technology_sources,entertainment_sources = entertainment_sources)
 
-@app.route('/sources/<id>')
+@main.route('/sources/<id>')
 def articles(id):
 	'''
 	view articles page
@@ -33,7 +34,7 @@ def articles(id):
 	return render_template('articles.html',title= title,articles = articles)
 
 
-@app.route('/search/<movie_name>')
+@main.route('/search/<movie_name>')
 def search(movie_name):
 
     '''
